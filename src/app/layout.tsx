@@ -13,21 +13,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                if (localStorage.getItem('dark_mode') === 'true') {
-                  document.documentElement.classList.add('dark');
-                }
-              } catch (_) {}
-            `,
-          }}
-        />
-      </head>
-      <body className="antialiased bg-white dark:bg-neutral-950">
+    <html lang="en" suppressHydrationWarning>
+      <body className="antialiased bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100">
         <ThemeProvider>
           {children}
         </ThemeProvider>

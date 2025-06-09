@@ -1,15 +1,33 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ThemeToggle from './ThemeToggle';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const closeMobileMenu = () => {
     setIsMenuOpen(false);
   };
+
+  if (!mounted) {
+    return (
+      <header id="header" className="absolute top-0 z-50 w-full h-20">
+        <div className="flex items-center justify-between h-full max-w-5xl pl-6 pr-4 mx-auto select-none">
+          <Link href="/" className="h-5 text-base group relative z-30 flex items-center space-x-1.5 text-black dark:text-white font-semibold">
+            <span className="text-xl -translate-y-0.5">✦</span>
+            <span className="-translate-y-0.5">aria</span>
+          </Link>
+        </div>
+      </header>
+    );
+  }
 
   return (
     <header id="header" className="absolute top-0 z-50 w-full h-20">

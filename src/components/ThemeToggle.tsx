@@ -1,14 +1,45 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { useTheme } from '@/context/ThemeContext'
 
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const handleThemeToggle = () => {
+    toggleTheme()
+  }
+
+  if (!mounted) {
+    return (
+      <div className="relative flex items-center pl-6 ml-4 font-medium tracking-wide text-neutral-800 dark:text-white">
+        <div className="absolute left-0 flex items-center justify-center w-6 h-6 overflow-hidden border-b border-transparent horizon group-hover:border-neutral-600">
+          <svg
+            className="absolute w-6 h-6"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+        </div>
+      </div>
+    )
+  }
 
   return (
-    <div
-      onClick={toggleTheme}
+    <button
+      onClick={handleThemeToggle}
       className="relative flex items-center pl-6 ml-4 font-medium tracking-wide cursor-pointer text-neutral-800 group dark:text-white"
+      aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
     >
       <div className="absolute left-0 flex items-center justify-center w-6 h-6 overflow-hidden border-b border-transparent horizon group-hover:border-neutral-600">
         <svg
@@ -38,6 +69,6 @@ export default function ThemeToggle() {
         <span className={`ml-2 ${theme === 'dark' ? 'hidden' : ''}`}>Day mode</span>
         <span className={`ml-2 ${theme === 'light' ? 'hidden' : ''}`}>Night mode</span>
       </span>
-    </div>
+    </button>
   )
 } 
