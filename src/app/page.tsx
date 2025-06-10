@@ -4,8 +4,21 @@ import Link from "next/link";
 import Image from "next/image";
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { useTheme } from 'next-themes'
+import { useState, useEffect } from 'react'
 
 export default function Home() {
+  const { theme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null
+  }
+
   return (
     <div className="relative h-screen bg-white dark:bg-neutral-950">
       {/* Background effects */}
@@ -45,7 +58,7 @@ export default function Home() {
             <div className="w-[45%] flex items-center justify-center bg-transparent">
               <div className="relative w-[800px] h-[800px] -mr-[200px]">
                 <img
-                  src="/assets/images/tech-background.svg"
+                  src={theme === 'light' ? "/assets/images/tech-background-light.svg" : "/assets/images/tech-background.svg"}
                   alt="Tech background"
                   className="w-full h-full animate-[float_15s_ease-in-out_infinite] hover:scale-125 transition-transform duration-300"
                   style={{
