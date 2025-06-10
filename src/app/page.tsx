@@ -7,14 +7,17 @@ import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
-    <main className="flex h-[100vh] flex-col antialiased bg-white dark:bg-neutral-950 overflow-hidden">
-      <Navbar />
-      <div className="flex-grow flex flex-col">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:28px_48px] -z-10"></div>
-          <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[1200px] w-[1200px] rounded-full bg-neutral-400 opacity-10 blur-[100px]"></div>
-        </div>
-        <div className="relative flex-grow flex flex-col">
+    <div className="relative h-screen bg-white dark:bg-neutral-950">
+      {/* Background effects */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:28px_48px]"></div>
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[1200px] w-[1200px] rounded-full bg-neutral-400 opacity-10 blur-[100px]"></div>
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 flex flex-col h-full">
+        <Navbar />
+        <div className="flex-1 flex items-center">
           <div className="flex flex-row items-center justify-between w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 gap-12">
             <div className="w-[45%] text-left">
               <h1 className="text-4xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-5xl">
@@ -60,8 +63,8 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
-    </main>
+    </div>
   );
 } 
