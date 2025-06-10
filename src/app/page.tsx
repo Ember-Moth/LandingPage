@@ -10,11 +10,18 @@ import { homeConfig } from '@/config/home'
 import { globalConfig } from "@/config/global";
 
 export default function Home() {
-  const { theme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  const [theme, setTheme] = useState('light')
 
   useEffect(() => {
     setMounted(true)
+    // Check if user has a theme preference
+    const savedTheme = localStorage.getItem('theme')
+    if (savedTheme) {
+      setTheme(savedTheme)
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setTheme('dark')
+    }
   }, [])
 
   if (!mounted) {
@@ -43,16 +50,42 @@ export default function Home() {
               </p>
               <div className="flex flex-row gap-4 mt-4">
                 <Link
-                  href="/projects"
-                  className="w-32 px-4 py-2 text-sm font-medium text-white bg-neutral-900 rounded-lg hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100 transition-all duration-300 hover:scale-105 cursor-pointer inline-block text-center"
+                  href="/about"
+                  className="group inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-neutral-900 rounded-lg hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100 transition-all duration-300 hover:scale-105 cursor-pointer"
                 >
-                  {homeConfig.buttons.viewProjects}
+                  View About
+                  <svg 
+                    className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2.5} 
+                      d="M13 7l5 5m0 0l-5 5m5-5H6" 
+                    />
+                  </svg>
                 </Link>
                 <Link
                   href="/posts"
-                  className="w-32 px-4 py-2 text-sm font-medium text-neutral-900 bg-white border border-neutral-300 rounded-lg hover:bg-neutral-50 dark:bg-neutral-900 dark:text-white dark:border-neutral-700 dark:hover:bg-neutral-800 transition-all duration-300 hover:scale-105 cursor-pointer inline-block text-center"
+                  className="group inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-neutral-900 bg-white border border-neutral-300 rounded-lg hover:bg-neutral-50 dark:bg-neutral-900 dark:text-white dark:border-neutral-700 dark:hover:bg-neutral-800 transition-all duration-300 hover:scale-105 cursor-pointer"
                 >
                   {homeConfig.buttons.readPosts}
+                  <svg 
+                    className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2.5} 
+                      d="M13 7l5 5m0 0l-5 5m5-5H6" 
+                    />
+                  </svg>
                 </Link>
               </div>
             </div>
