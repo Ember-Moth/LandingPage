@@ -16,7 +16,7 @@ export const postsConfig = {
       "title": "Docker Basics for Developers",
       "description": "Learn the fundamentals of Docker and containerization",
       "date": "2025-06-10",
-      "image": "/assets/images/post1.jpg",
+      "image": "/assets/images/posts/post3.jpg",
       "slug": "posts/docker-basics",
       "tags": [
         "docker",
@@ -31,7 +31,7 @@ export const postsConfig = {
       "title": "Getting Started with Next.js 14",
       "description": "A comprehensive guide to building modern web applications with Next.js 14",
       "date": "2025-06-10",
-      "image": "/assets/images/post2.jpg",
+      "image": "/assets/images/posts/post3.jpg",
       "slug": "posts/getting-started-with-nextjs",
       "tags": [
         "nextjs",
@@ -46,7 +46,7 @@ export const postsConfig = {
       "title": "Designing GraphQL APIs",
       "description": "Best practices for designing and implementing GraphQL APIs",
       "date": "2025-06-10",
-      "image": "/assets/images/post1.jpg",
+      "image": "/assets/images/posts/post1.jpg",
       "slug": "posts/graphql-api",
       "tags": [
         "graphql",
@@ -61,7 +61,7 @@ export const postsConfig = {
       "title": "MCP Template List",
       "description": "A comprehensive list of MCP templates and their features",
       "date": "2025-06-10",
-      "image": "/assets/images/post3.jpg",
+      "image": "/assets/images/posts/post1.jpg",
       "slug": "posts/mcp-template-list",
       "tags": [
         "templates",
@@ -75,7 +75,7 @@ export const postsConfig = {
       "title": "Building Microservices with Node.js",
       "description": "A practical guide to building scalable microservices using Node.js",
       "date": "2025-06-10",
-      "image": "/assets/images/post2.jpg",
+      "image": "/assets/images/posts/post3.jpg",
       "slug": "posts/nodejs-microservices",
       "tags": [
         "nodejs",
@@ -90,7 +90,7 @@ export const postsConfig = {
       "title": "React Performance Optimization Techniques",
       "description": "Learn how to optimize your React applications for better performance",
       "date": "2025-06-10",
-      "image": "/assets/images/post3.jpg",
+      "image": "/assets/images/posts/post2.jpg",
       "slug": "posts/react-performance",
       "tags": [
         "react",
@@ -105,7 +105,7 @@ export const postsConfig = {
       "title": "Web Security Best Practices",
       "description": "Essential security practices for modern web applications",
       "date": "2025-06-10",
-      "image": "/assets/images/post1.jpg",
+      "image": "/assets/images/posts/post2.jpg",
       "slug": "posts/security-best-practices",
       "tags": [
         "security",
@@ -120,7 +120,7 @@ export const postsConfig = {
       "title": "Advanced Tailwind CSS Tips and Tricks",
       "description": "Learn how to leverage Tailwind CSS for better UI development",
       "date": "2025-06-10",
-      "image": "/assets/images/post1.jpg",
+      "image": "/assets/images/posts/post2.jpg",
       "slug": "posts/tailwind-css-tips",
       "tags": [
         "css",
@@ -135,7 +135,7 @@ export const postsConfig = {
       "title": "Testing React Applications",
       "description": "A comprehensive guide to testing React applications with Jest and React Testing Library",
       "date": "2025-06-10",
-      "image": "/assets/images/post1.jpg",
+      "image": "/assets/images/posts/post3.jpg",
       "slug": "posts/testing-react",
       "tags": [
         "react",
@@ -150,7 +150,7 @@ export const postsConfig = {
       "title": "TypeScript Best Practices in 2024",
       "description": "Essential TypeScript patterns and practices for modern web development",
       "date": "2025-06-10",
-      "image": "/assets/images/post1.jpg",
+      "image": "/assets/images/posts/post3.jpg",
       "slug": "posts/typescript-best-practices",
       "tags": [
         "typescript",
