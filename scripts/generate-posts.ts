@@ -28,7 +28,7 @@ if (!fs.existsSync(CONFIG_DIR)) {
 
 function getRandomImage() {
   const imageNumber = Math.floor(Math.random() * 3) + 1;
-  return `/assets/images/post${imageNumber}.jpg`;
+  return `/assets/images/posts/post${imageNumber}.jpg`;
 }
 
 function generatePostsConfig() {
