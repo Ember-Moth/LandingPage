@@ -6,6 +6,8 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { useTheme } from 'next-themes'
 import { useState, useEffect } from 'react'
+import { homeConfig } from '@/config/home'
+import { globalConfig } from "@/config/global";
 
 export default function Home() {
   const { theme } = useTheme()
@@ -34,23 +36,23 @@ export default function Home() {
           <div className="flex flex-row items-center justify-between w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 gap-12">
             <div className="w-[45%] text-left">
               <h1 className="text-4xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-5xl">
-                Hello, I'm Kai.
+                {homeConfig.greeting}
               </h1>
               <p className="mt-3 text-lg leading-7 text-neutral-600 dark:text-neutral-400">
-                A passionate frontend developer with a keen eye for design and a love for creating beautiful, functional web experiences.
+                {homeConfig.description}
               </p>
               <div className="flex flex-row gap-4 mt-4">
                 <Link
                   href="/projects"
                   className="w-32 px-4 py-2 text-sm font-medium text-white bg-neutral-900 rounded-lg hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100 transition-all duration-300 hover:scale-105 cursor-pointer inline-block text-center"
                 >
-                  View Projects
+                  {homeConfig.buttons.viewProjects}
                 </Link>
                 <Link
                   href="/posts"
                   className="w-32 px-4 py-2 text-sm font-medium text-neutral-900 bg-white border border-neutral-300 rounded-lg hover:bg-neutral-50 dark:bg-neutral-900 dark:text-white dark:border-neutral-700 dark:hover:bg-neutral-800 transition-all duration-300 hover:scale-105 cursor-pointer inline-block text-center"
                 >
-                  Read Posts
+                  {homeConfig.buttons.readPosts}
                 </Link>
               </div>
             </div>
