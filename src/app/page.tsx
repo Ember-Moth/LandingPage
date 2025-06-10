@@ -1,25 +1,20 @@
 'use client'
 
-import Image from 'next/image'
-import Link from 'next/link'
-import '/public/css/main.BuTeG91x.css'
-import '/public/css/about.D3sawUWR.css'
-import ThemeToggle from '@/components/ThemeToggle'
+import Link from "next/link";
+import Image from "next/image";
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
     <main className="flex h-[100vh] flex-col antialiased bg-white dark:bg-neutral-950 overflow-hidden">
-      <div className="relative flex-grow flex flex-col">
+      <Navbar />
+      <div className="flex-grow flex flex-col">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:28px_48px] -z-10"></div>
           <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[1200px] w-[1200px] rounded-full bg-neutral-400 opacity-10 blur-[100px]"></div>
         </div>
-
-        <Navbar />
-
-        <div className="flex-grow flex items-center relative z-10">
+        <div className="relative flex-grow flex flex-col">
           <div className="flex flex-row items-center justify-between w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 gap-12">
             <div className="w-[45%] text-left">
               <h1 className="text-4xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-5xl">
@@ -45,15 +40,22 @@ export default function Home() {
             </div>
 
             <div className="w-[45%] flex items-center justify-center bg-transparent">
-              <div className="relative w-[380px] h-[480px] rounded-full overflow-hidden transition-transform duration-300 hover:scale-105 bg-transparent shadow-none">
-                <Image
-                  src="/assets/images/photo.png"
-                  alt="Kai's photo"
-                  fill
-                  className="object-contain !shadow-none"
-                  priority
+              <div className="relative w-[800px] h-[800px] -mr-[200px]">
+                <img
+                  src="/assets/images/tech-background.svg"
+                  alt="Tech background"
+                  className="w-full h-full animate-[float_15s_ease-in-out_infinite] hover:scale-125 transition-transform duration-300"
+                  style={{
+                    animation: 'float 15s ease-in-out infinite',
+                  }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent dark:block hidden"></div>
+                <style jsx>{`
+                  @keyframes float {
+                    0% { transform: scale(1); }
+                    50% { transform: scale(1.1); }
+                    100% { transform: scale(1); }
+                  }
+                `}</style>
               </div>
             </div>
           </div>
@@ -61,5 +63,5 @@ export default function Home() {
       </div>
       <Footer />
     </main>
-  )
+  );
 } 
