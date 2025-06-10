@@ -2,36 +2,46 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import ThemeToggle from './ThemeToggle';
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  console.log(pathname);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const closeMobileMenu = () => {
+  // 当路由变化时关闭菜单
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
     setIsMenuOpen(false);
   };
 
   if (!mounted) {
-    return (
-      <header id="header" className="absolute top-0 z-50 w-full h-20">
-        <div className="flex items-center justify-between h-full max-w-5xl pl-6 pr-4 mx-auto select-none">
-          <Link href="/" className="h-5 text-base group relative z-30 flex items-center space-x-1.5 text-black dark:text-white font-semibold">
-            <span className="text-xl -translate-y-0.5">✦</span>
-            <span className="-translate-y-0.5">aria</span>
-          </Link>
-        </div>
-      </header>
-    );
+    return null;
   }
+
+  const isActive = (path: string) => {
+    if (path === '/') {
+      return pathname === '/';
+    }
+    return pathname.startsWith(path);
+  };
 
   return (
     <header id="header" className="absolute top-0 z-50 w-full h-20">
-      <div className="flex items-center justify-between h-full max-w-5xl pl-6 pr-4 mx-auto select-none">
+      <div className="flex items-center justify-between h-full max-w-5xl pl-6 pr-4 mx-auto border-b border-l-0 border-r-0 border-transparent select-none lg:border-r lg:border-l lg:rounded-b-xl">
         <Link href="/" className="h-5 text-base group relative z-30 flex items-center space-x-1.5 text-black dark:text-white font-semibold">
           <span className="text-xl -translate-y-0.5 group-hover:-rotate-12 group-hover:scale-[1.2] ease-in-out duration-300">✦</span>
           <span className="-translate-y-0.5">aria</span>
@@ -39,7 +49,7 @@ export default function Navbar() {
 
         <div
           id="mobileMenuBackground"
-          onClick={closeMobileMenu}
+          onClick={closeMenu}
           className={`fixed inset-0 z-20 w-screen h-screen duration-300 ease-out bg-white/90 dark:bg-neutral-950/90 ${
             isMenuOpen ? 'block' : 'hidden'
           }`}
@@ -48,22 +58,40 @@ export default function Navbar() {
         <nav className="relative z-30 flex flex-row-reverse justify-start w-full text-sm sm:justify-end text-neutral-500 dark:text-neutral-400 sm:flex-row">
           <div
             id="openMenu"
-            onClick={() => setIsMenuOpen(true)}
-            className="flex flex-col items-end justify-center w-6 h-6 ml-4 cursor-pointer sm:hidden"
+            onClick={toggleMenu}
+            className={`flex flex-col items-end justify-center w-6 h-6 ml-4 cursor-pointer sm:hidden ${
+              isMenuOpen ? 'hidden' : 'block'
+            }`}
           >
-            <svg className="w-8 h-8 dark:text-neutral-200" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+            <svg
+              className="w-8 h-8 dark:text-neutral-200"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
               <path d="M4 8h16M4 16h16"></path>
             </svg>
           </div>
 
           <div
             id="closeMenu"
-            onClick={closeMobileMenu}
+            onClick={toggleMenu}
             className={`flex flex-col items-end justify-center w-6 h-6 ml-4 -translate-x-1 cursor-pointer sm:hidden ${
               isMenuOpen ? 'block' : 'hidden'
             }`}
           >
-            <svg className="w-6 h-6 text-neutral-600 dark:text-neutral-200" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+            <svg
+              className="w-6 h-6 text-neutral-600 dark:text-neutral-200"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
               <path d="M6 18L18 6M6 6l12 12"></path>
             </svg>
           </div>
@@ -78,16 +106,43 @@ export default function Navbar() {
               <div className="relative w-full h-full bg-white border border-dashed border-neutral-300 dark:border-neutral-700 backdrop-blur-sm rounded-xl dark:bg-neutral-950"></div>
             </div>
 
-            <Link href="/" className="relative flex items-center justify-center w-full px-3 py-2 font-medium tracking-wide text-center duration-200 ease-out sm:py-0 sm:mb-0 md:w-auto hover:text-neutral-900 dark:hover:text-white">
+            <Link
+              href="/"
+              onClick={closeMenu}
+              className={`relative flex items-center justify-center w-full px-3 py-2 font-medium tracking-wide text-center duration-200 ease-out sm:py-0 sm:mb-0 md:w-auto hover:text-neutral-900 dark:hover:text-white ${
+                isActive('/') ? 'text-neutral-900 dark:text-white' : ''
+              }`}
+            >
               Home
             </Link>
-            <Link href="/posts" className="relative flex items-center justify-center w-full px-3 py-2 font-medium tracking-wide text-center duration-200 ease-out sm:py-0 sm:mb-0 md:w-auto hover:text-neutral-900 dark:hover:text-white">
+
+            <Link
+              href="/posts"
+              onClick={closeMenu}
+              className={`relative flex items-center justify-center w-full px-3 py-2 font-medium tracking-wide text-center duration-200 ease-out sm:py-0 sm:mb-0 md:w-auto hover:text-neutral-900 dark:hover:text-white ${
+                isActive('/posts') ? 'text-neutral-900 dark:text-white' : ''
+              }`}
+            >
               Posts
             </Link>
-            <Link href="/projects" className="relative flex items-center justify-center w-full px-3 py-2 font-medium tracking-wide text-center duration-200 ease-out sm:py-0 sm:mb-0 md:w-auto hover:text-neutral-900 dark:hover:text-white">
+
+            <Link
+              href="/projects"
+              onClick={closeMenu}
+              className={`relative flex items-center justify-center w-full px-3 py-2 font-medium tracking-wide text-center duration-200 ease-out sm:py-0 sm:mb-0 md:w-auto hover:text-neutral-900 dark:hover:text-white ${
+                isActive('/projects') ? 'text-neutral-900 dark:text-white' : ''
+              }`}
+            >
               Projects
             </Link>
-            <Link href="/about" className="relative flex items-center justify-center w-full px-3 py-2 font-medium tracking-wide text-center duration-200 ease-out sm:py-0 sm:mb-0 md:w-auto hover:text-neutral-900 dark:hover:text-white">
+
+            <Link
+              href="/about"
+              onClick={closeMenu}
+              className={`relative flex items-center justify-center w-full px-3 py-2 font-medium tracking-wide text-center duration-200 ease-out sm:py-0 sm:mb-0 md:w-auto hover:text-neutral-900 dark:hover:text-white ${
+                isActive('/about') ? 'text-neutral-900 dark:text-white' : ''
+              }`}
+            >
               About
             </Link>
           </div>
