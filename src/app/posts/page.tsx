@@ -3,12 +3,18 @@
 import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Link from "next/link";
+import PostCard from "@/components/PostCard";
 import { postsConfig } from "@/config/posts";
+
+const POSTS_PER_PAGE = 5;
 
 export default function Posts() {
   const [mounted, setMounted] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(postsConfig.posts.length / POSTS_PER_PAGE);
+  const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
+  const endIndex = startIndex + POSTS_PER_PAGE;
+  const currentPosts = postsConfig.posts.slice(startIndex, endIndex);
 
   useEffect(() => {
     setMounted(true);
@@ -17,11 +23,6 @@ export default function Posts() {
   if (!mounted) {
     return null;
   }
-
-  const filteredPosts = postsConfig.posts.filter((post) =>
-    post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    post.description.toLowerCase().includes(searchQuery.toLowerCase())
-  );
 
   return (
     <main className="min-h-screen flex flex-col">
@@ -33,57 +34,79 @@ export default function Posts() {
 
         <Navbar />
 
-        <section className="relative z-20 w-[896px] mx-auto mt-32 mb-12">
+        <section className="relative z-20 max-w-4xl mx-auto mt-32 mb-12 px-7 lg:px-0">
           <div className="relative z-20 w-full mx-auto lg:mx-0">
-            <h2 className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 sm:text-3xl lg:text-4xl">
-              {postsConfig.title}
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-neutral-600 dark:text-neutral-400 sm:leading-7 lg:leading-8 sm:text-base lg:text-lg">
-              {postsConfig.description}
-            </p>
-            <div className="mt-6">
-              <input
-                type="text"
-                placeholder="Search posts..."
-                className="w-full px-4 py-2 border border-neutral-300 dark:border-neutral-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-neutral-900 dark:text-white"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 sm:text-3xl lg:text-4xl">
+                {postsConfig.title}
+              </h2>
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder={postsConfig.searchPlaceholder}
+                  className="w-64 px-4 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-100 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                />
+                <svg
+                  className="absolute right-3 top-2.5 w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="text-neutral-600 dark:text-neutral-400"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </div>
             </div>
           </div>
 
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredPosts.length > 0 ? (
-              filteredPosts.map((post, index) => (
-                <Link
-                  key={index}
-                  href={`/posts/${post.slug}`}
-                  className="group relative flex flex-col overflow-hidden rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950"
-                >
-                  <div className="flex flex-1 flex-col justify-between p-6">
-                    <div className="flex-1">
-                      <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400">
-                        {post.date} · {post.readTime}
-                      </p>
-                      <div className="mt-2 block">
-                        <p className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
-                          {post.title}
-                        </p>
-                        <p className="mt-3 text-base text-neutral-500 dark:text-neutral-400">
-                          {post.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              ))
-            ) : (
-              <div className="col-span-full text-center py-12">
-                <p className="text-neutral-500 dark:text-neutral-400">
-                  {postsConfig.noPosts}
-                </p>
-              </div>
-            )}
+          <div className="z-50 flex flex-col items-stretch w-full gap-5">
+            {currentPosts.map((post, index) => (
+              <PostCard
+                key={index}
+                title={post.title}
+                description={post.description}
+                date={post.date}
+                href={`/${post.slug}`}
+                pattern="dots"
+                imageUrl={post.image}
+                readingTime={parseInt(post.readTime)}
+              />
+            ))}
+          </div>
+
+          <div className="flex justify-center items-center gap-2 mt-8">
+            <button 
+              onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+              className="px-3 py-1 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {postsConfig.pagination.previous}
+            </button>
+            {[...Array(totalPages)].map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentPage(index + 1)}
+                className={`w-8 h-8 flex items-center justify-center rounded-full text-sm font-medium transition-colors ${
+                  currentPage === index + 1
+                    ? 'bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900'
+                    : 'text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                }`}
+              >
+                {index + 1}
+              </button>
+            ))}
+            <button 
+              onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+              disabled={currentPage === totalPages}
+              className="px-3 py-1 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {postsConfig.pagination.next}
+            </button>
           </div>
         </section>
       </div>
