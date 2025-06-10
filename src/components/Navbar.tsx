@@ -4,12 +4,12 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import ThemeToggle from './ThemeToggle';
+import { globalConfig } from '@/config/global';
 
 export default function Navbar() {
   const [mounted, setMounted] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-  console.log(pathname);
 
   useEffect(() => {
     setMounted(true);
@@ -41,10 +41,10 @@ export default function Navbar() {
 
   return (
     <header id="header" className="absolute top-0 z-50 w-full h-20">
-      <div className="flex items-center justify-between h-full max-w-5xl pl-6 pr-4 mx-auto border-b border-l-0 border-r-0 border-transparent select-none lg:border-r lg:border-l lg:rounded-b-xl">
-        <Link href="/" className="h-5 text-base group relative z-30 flex items-center space-x-1.5 text-black dark:text-white font-semibold">
+      <div className="flex items-center justify-between h-full max-w-7xl pl-6 pr-4 mx-auto border-b border-l-0 border-r-0 border-transparent select-none lg:border-r lg:border-l lg:rounded-b-xl">
+        <Link href="/" className="h-5 text-base group relative z-30 flex items-center space-x-1.5 text-black dark:text-white font-semibold whitespace-nowrap">
           <span className="text-xl -translate-y-0.5 group-hover:-rotate-12 group-hover:scale-[1.2] ease-in-out duration-300">✦</span>
-          <span className="-translate-y-0.5">aria</span>
+          <span className="-translate-y-0.5">{globalConfig.site.author}</span>
         </Link>
 
         <div
@@ -106,45 +106,18 @@ export default function Navbar() {
               <div className="relative w-full h-full bg-white border border-dashed border-neutral-300 dark:border-neutral-700 backdrop-blur-sm rounded-xl dark:bg-neutral-950"></div>
             </div>
 
-            <Link
-              href="/"
-              onClick={closeMenu}
-              className={`relative flex items-center justify-center w-full px-3 py-2 font-medium tracking-wide text-center duration-200 ease-out sm:py-0 sm:mb-0 md:w-auto hover:text-neutral-900 dark:hover:text-white ${
-                isActive('/') ? 'text-neutral-900 dark:text-white' : ''
-              }`}
-            >
-              Home
-            </Link>
-
-            <Link
-              href="/posts"
-              onClick={closeMenu}
-              className={`relative flex items-center justify-center w-full px-3 py-2 font-medium tracking-wide text-center duration-200 ease-out sm:py-0 sm:mb-0 md:w-auto hover:text-neutral-900 dark:hover:text-white ${
-                isActive('/posts') ? 'text-neutral-900 dark:text-white' : ''
-              }`}
-            >
-              Posts
-            </Link>
-
-            <Link
-              href="/projects"
-              onClick={closeMenu}
-              className={`relative flex items-center justify-center w-full px-3 py-2 font-medium tracking-wide text-center duration-200 ease-out sm:py-0 sm:mb-0 md:w-auto hover:text-neutral-900 dark:hover:text-white ${
-                isActive('/projects') ? 'text-neutral-900 dark:text-white' : ''
-              }`}
-            >
-              Projects
-            </Link>
-
-            <Link
-              href="/about"
-              onClick={closeMenu}
-              className={`relative flex items-center justify-center w-full px-3 py-2 font-medium tracking-wide text-center duration-200 ease-out sm:py-0 sm:mb-0 md:w-auto hover:text-neutral-900 dark:hover:text-white ${
-                isActive('/about') ? 'text-neutral-900 dark:text-white' : ''
-              }`}
-            >
-              About
-            </Link>
+            {globalConfig.navigation.items.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={closeMenu}
+                className={`relative flex items-center justify-center w-full px-3 py-2 font-medium tracking-wide text-center duration-200 ease-out sm:py-0 sm:mb-0 md:w-auto hover:text-neutral-900 dark:hover:text-white ${
+                  isActive(item.href) ? 'text-neutral-900 dark:text-white' : ''
+                }`}
+              >
+                {item.title}
+              </Link>
+            ))}
           </div>
 
           <ThemeToggle />

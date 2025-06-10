@@ -1,50 +1,50 @@
 export const aboutConfig = {
-  title: "About Me",
-  description: "Hello 👋 I'm a frontend engineer from Nanjing, China. I'm passionate about building new products and learning new technology.",
+  title: "About Us",
+  description: "Hello 👋 We are the EdgeOne team, dedicated to creating high-quality web templates and tools for developers. Our mission is to help developers build better web applications faster.",
   skills: [
-    "JavaScript",
-    "TypeScript",
-    "React",
     "Next.js",
-    "Node.js",
-    "Vue",
+    "React",
+    "TypeScript",
     "Tailwind CSS",
-    "Git"
+    "Node.js",
+    "Docker",
+    "Git",
+    "AWS"
   ],
   experience: {
     title: "Experience",
     items: [
       {
-        period: "June 2018 · Present",
-        role: "Front-end Engineer",
-        company: "Full Truck Alliance",
-        description: "Responsible for customer service and CRM system front-end development."
+        period: "2022 - Present",
+        role: "Senior Frontend Developer",
+        company: "Tencent Cloud",
+        description: "Leading frontend development for EdgeOne platform and templates."
       },
       {
-        period: "July 2015 · June 2018",
-        role: "Front-end Engineer",
-        company: "YOHO!",
-        description: "Responsible for mobile front-end development of e-commerce platform."
+        period: "2020 - 2022",
+        role: "Frontend Developer",
+        company: "Tencent Cloud",
+        description: "Developed and maintained multiple web applications and tools."
       },
       {
-        period: "September 2014 · July 2015",
-        role: "Node.JS Developer",
-        company: "WuLian",
-        description: "Intern, involved in the development of Internet of Things cloud systems."
+        period: "2018 - 2020",
+        role: "Junior Developer",
+        company: "Tencent Cloud",
+        description: "Worked on various client projects and internal tools."
       }
     ]
   },
   connect: {
     title: "Let's Connect",
-    description: "If you want to stay up to date with my work be sure to follow me on twitter, or you can send me an email and I'll be sure to get back to you.",
+    description: "Feel free to reach out if you want to collaborate or just say hi! You can find us on social media or drop us an email.",
     links: {
       twitter: {
-        text: "follow me on twitter",
-        url: "https://x.com/0xKaibi"
+        text: "follow us on twitter",
+        url: "https://x.com/TencentCloudEO"
       },
       email: {
         text: "email",
-        url: "mailto:astro-aria#miantiao.me"
+        url: "mailto:media_service@tencent.com"
       }
     }
   }

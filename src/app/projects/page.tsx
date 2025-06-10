@@ -5,45 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-
-const projects = [
-  {
-    title: "TempMail.Best",
-    description: "Best Temporary Email.",
-    href: "https://tempmail.best",
-    imageUrl: "/assets/images/projects/tempmail.best.png"
-  },
-  {
-    title: "DNS.Surf",
-    description: "Querying DNS Resolution Results in Different Regions Worldwide.",
-    href: "https://dns.surf",
-    imageUrl: "/assets/images/projects/dns.surf.png"
-  },
-  {
-    title: "HTML.ZONE",
-    description: "Web Toolbox.",
-    href: "https://html.zone",
-    imageUrl: "/assets/images/projects/html.zone.png"
-  },
-  {
-    title: "Sink",
-    description: "A Simple / Speedy / Secure Link Shortener with Analytics.",
-    href: "https://sink.cool",
-    imageUrl: "/assets/images/projects/sink.cool.png"
-  },
-  {
-    title: "BroadcastChannel",
-    description: "Turn your Telegram Channel into a MicroBlog.",
-    href: "https://github.com/ccbikai/BroadcastChannel",
-    imageUrl: "/assets/images/projects/broadcast-channel.png"
-  },
-  {
-    title: "L(O*62).ONG",
-    description: "Make your URL looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooonger",
-    href: "https://loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo.ong",
-    imageUrl: "/assets/images/projects/long.png"
-  }
-];
+import { projectsConfig } from '@/config/projects'
 
 export default function Projects() {
   const [mounted, setMounted] = useState(false);
@@ -72,15 +34,15 @@ export default function Projects() {
             <section className="relative z-20 w-[896px] mx-auto">
               <div className="relative z-20 w-full">
                 <h2 className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 sm:text-3xl lg:text-4xl">
-                  My Projects
+                  {projectsConfig.title}
                 </h2>
                 <p className="mt-3 text-sm leading-6 text-neutral-600 dark:text-neutral-400 sm:mt-4 lg:mt-6 sm:leading-7 lg:leading-8 sm:text-base lg:text-lg">
-                  Here are some of the current projects I've been working on. I really enjoy creating new projects and coming up with new ideas. I'm always working on something new, so check back often!
+                  {projectsConfig.description}
                 </p>
               </div>
 
               <div className="z-50 grid items-stretch w-full grid-cols-1 my-8 gap-7 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {projects.map((project, index) => (
+                {projectsConfig.items.map((project, index) => (
                   <a
                     key={index}
                     href={project.href}
