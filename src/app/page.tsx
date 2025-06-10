@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import { useTheme } from 'next-themes'
 import { useState, useEffect } from 'react'
 import { homeConfig } from '@/config/home'
 import { globalConfig } from "@/config/global";

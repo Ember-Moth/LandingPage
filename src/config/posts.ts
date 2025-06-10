@@ -1,138 +1,165 @@
-export interface Post {
-  title: string;
-  description: string;
-  date: string;
-  readTime: string;
-  slug: string;
-}
-
-interface PostsConfig {
-  title: string;
-  description: string;
-  backButton: string;
-  noPosts: string;
-  searchPlaceholder: string;
-  pagination: {
-    previous: string;
-    next: string;
-  };
-  items: Post[];
-}
+// This file is auto-generated. Do not edit manually.
+import { Post } from '@/types/post';
 
 export const postsConfig = {
-  title: "Blog Posts",
-  description: "Technical articles, tutorials, and insights about web development and EdgeOne platform.",
-  backButton: "Back to Home",
-  noPosts: "No posts found matching your search.",
-  searchPlaceholder: "Filter posts by title...",
-  pagination: {
-    previous: "Previous",
-    next: "Next"
+  "title": "Blog Posts",
+  "description": "Technical articles, tutorials, and insights about web development and EdgeOne platform.",
+  "backButton": "Back to Home",
+  "noPosts": "No posts found matching your search.",
+  "searchPlaceholder": "Filter posts by title...",
+  "pagination": {
+    "previous": "Previous",
+    "next": "Next"
   },
-  items: [
+  "posts": [
     {
-      title: "Getting Started with EdgeOne",
-      description: "Learn how to use EdgeOne platform to build and deploy your web applications.",
-      date: "2024-03-15",
-      href: "/posts/getting-started-with-edgeone",
-      imageUrl: "/assets/images/posts/post1.jpg",
-      readingTime: "5 min read"
+      "title": "Docker Basics for Developers",
+      "description": "Learn the fundamentals of Docker and containerization",
+      "date": "2025-06-10",
+      "image": "/assets/images/post1.jpg",
+      "slug": "posts/docker-basics",
+      "tags": [
+        "docker",
+        "devops",
+        "containers",
+        "deployment"
+      ],
+      "author": "Lisa Wang",
+      "readTime": "5 min read"
     },
     {
-      title: "Building Templates with Next.js",
-      description: "A comprehensive guide to creating reusable templates with Next.js and Tailwind CSS.",
-      date: "2024-03-10",
-      href: "/posts/building-templates-with-nextjs",
-      imageUrl: "/assets/images/posts/post2.jpg",
-      readingTime: "8 min read"
+      "title": "Getting Started with Next.js 14",
+      "description": "A comprehensive guide to building modern web applications with Next.js 14",
+      "date": "2025-06-10",
+      "image": "/assets/images/post2.jpg",
+      "slug": "posts/getting-started-with-nextjs",
+      "tags": [
+        "nextjs",
+        "react",
+        "web development",
+        "tutorial"
+      ],
+      "author": "Jane Smith",
+      "readTime": "5 min read"
     },
     {
-      title: "EdgeOne Best Practices",
-      description: "Essential tips and tricks for getting the most out of EdgeOne platform.",
-      date: "2024-03-05",
-      href: "/posts/edgeone-best-practices",
-      imageUrl: "/assets/images/posts/post3.jpg",
-      readingTime: "6 min read"
+      "title": "Designing GraphQL APIs",
+      "description": "Best practices for designing and implementing GraphQL APIs",
+      "date": "2025-06-10",
+      "image": "/assets/images/post1.jpg",
+      "slug": "posts/graphql-api",
+      "tags": [
+        "graphql",
+        "api",
+        "backend",
+        "web development"
+      ],
+      "author": "Tom Wilson",
+      "readTime": "5 min read"
     },
     {
-      title: "Run MCP Server in a Docker sandbox",
-      description: "Run MCP Server in a Docker sandbox to avoid supply chain attacks.",
-      date: "Apr 25, 2025",
-      href: "/post/guide-to-running-mcp-server-in-a-sandbox",
-      imageUrl: "/assets/images/posts/post1.jpg",
-      readingTime: 8
+      "title": "MCP Template List",
+      "description": "A comprehensive list of MCP templates and their features",
+      "date": "2025-06-10",
+      "image": "/assets/images/post3.jpg",
+      "slug": "posts/mcp-template-list",
+      "tags": [
+        "templates",
+        "mcp",
+        "documentation"
+      ],
+      "author": "John Doe",
+      "readTime": "5 min read"
     },
     {
-      title: "Use Cloudflare Workers to concat audio files",
-      description: "How to use Cloudflare Workers to merge audio files using FFmpeg in the browser.",
-      date: "April 19, 2025",
-      href: "/post/cloudflare-audio-concat",
-      imageUrl: "/assets/images/posts/post2.jpg",
-      readingTime: 12
+      "title": "Building Microservices with Node.js",
+      "description": "A practical guide to building scalable microservices using Node.js",
+      "date": "2025-06-10",
+      "image": "/assets/images/post2.jpg",
+      "slug": "posts/nodejs-microservices",
+      "tags": [
+        "nodejs",
+        "microservices",
+        "backend",
+        "architecture"
+      ],
+      "author": "David Brown",
+      "readTime": "5 min read"
     },
     {
-      title: "RSS.Beauty - Make Your RSS Beautiful!",
-      description: "Beautify your RSS feeds with RSS.Beauty, featuring elegant interfaces, responsive design, and self-hosting support. Try it now!",
-      date: "Dec 31, 2024",
-      href: "/post/rss-beauty",
-      imageUrl: "/assets/images/posts/post3.jpg",
-      readingTime: 6
+      "title": "React Performance Optimization Techniques",
+      "description": "Learn how to optimize your React applications for better performance",
+      "date": "2025-06-10",
+      "image": "/assets/images/post3.jpg",
+      "slug": "posts/react-performance",
+      "tags": [
+        "react",
+        "performance",
+        "optimization",
+        "frontend"
+      ],
+      "author": "Mike Chen",
+      "readTime": "5 min read"
     },
     {
-      title: "Building a Modern Web App with Next.js",
-      description: "Learn how to build a modern web application using Next.js, React, and Tailwind CSS.",
-      date: "Dec 15, 2024",
-      href: "/post/nextjs-web-app",
-      imageUrl: "/assets/images/posts/post1.jpg",
-      readingTime: 15
+      "title": "Web Security Best Practices",
+      "description": "Essential security practices for modern web applications",
+      "date": "2025-06-10",
+      "image": "/assets/images/post1.jpg",
+      "slug": "posts/security-best-practices",
+      "tags": [
+        "security",
+        "web development",
+        "best practices",
+        "authentication"
+      ],
+      "author": "John Security",
+      "readTime": "5 min read"
     },
     {
-      title: "The Future of Web Development",
-      description: "Exploring the latest trends and technologies shaping the future of web development.",
-      date: "Dec 1, 2024",
-      href: "/post/future-web-dev",
-      imageUrl: "/assets/images/posts/post2.jpg",
-      readingTime: 10
+      "title": "Advanced Tailwind CSS Tips and Tricks",
+      "description": "Learn how to leverage Tailwind CSS for better UI development",
+      "date": "2025-06-10",
+      "image": "/assets/images/post1.jpg",
+      "slug": "posts/tailwind-css-tips",
+      "tags": [
+        "css",
+        "tailwind",
+        "frontend",
+        "design"
+      ],
+      "author": "Sarah Wilson",
+      "readTime": "5 min read"
     },
     {
-      title: "Mastering TypeScript in 2024",
-      description: "A comprehensive guide to TypeScript features and best practices for modern web development.",
-      date: "Nov 20, 2024",
-      href: "/post/typescript-guide",
-      imageUrl: "/assets/images/posts/post3.jpg",
-      readingTime: 20
+      "title": "Testing React Applications",
+      "description": "A comprehensive guide to testing React applications with Jest and React Testing Library",
+      "date": "2025-06-10",
+      "image": "/assets/images/post1.jpg",
+      "slug": "posts/testing-react",
+      "tags": [
+        "react",
+        "testing",
+        "jest",
+        "frontend"
+      ],
+      "author": "Emma Davis",
+      "readTime": "5 min read"
     },
     {
-      title: "The Art of Clean Code",
-      description: "Learn the principles and practices of writing clean, maintainable code that stands the test of time.",
-      date: "Nov 10, 2024",
-      href: "/post/clean-code",
-      imageUrl: "/assets/images/posts/post1.jpg",
-      readingTime: 12
-    },
-    {
-      title: "Building Scalable APIs with Node.js",
-      description: "Best practices and patterns for building robust and scalable APIs using Node.js and Express.",
-      date: "Oct 28, 2024",
-      href: "/post/nodejs-apis",
-      imageUrl: "/assets/images/posts/post2.jpg",
-      readingTime: 18
-    },
-    {
-      title: "Getting Started with GraphQL",
-      description: "A beginner's guide to GraphQL: concepts, implementation, and real-world examples.",
-      date: "Oct 15, 2024",
-      href: "/post/graphql-intro",
-      imageUrl: "/assets/images/posts/post3.jpg",
-      readingTime: 14
-    },
-    {
-      title: "The Power of CSS Grid",
-      description: "Master CSS Grid layout and create complex, responsive designs with ease.",
-      date: "Oct 1, 2024",
-      href: "/post/css-grid",
-      imageUrl: "/assets/images/posts/post1.jpg",
-      readingTime: 9
+      "title": "TypeScript Best Practices in 2024",
+      "description": "Essential TypeScript patterns and practices for modern web development",
+      "date": "2025-06-10",
+      "image": "/assets/images/post1.jpg",
+      "slug": "posts/typescript-best-practices",
+      "tags": [
+        "typescript",
+        "javascript",
+        "programming",
+        "best practices"
+      ],
+      "author": "Alex Johnson",
+      "readTime": "5 min read"
     }
   ]
-} as const; 
+} as const;
