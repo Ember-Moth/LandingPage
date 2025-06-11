@@ -46,20 +46,21 @@ function ThemeAwareImage() {
   }
 
   return (
-    <div className="relative w-[500px] h-[500px]">
+    <div className="relative w-[700px] h-[700px]">
       <img
         src={imageSrc}
         alt="Tech background"
         className="w-full h-full animate-[float_15s_ease-in-out_infinite] hover:scale-125 transition-transform duration-300"
         style={{
           animation: 'float 15s ease-in-out infinite',
+          transform: 'scale(1.2)',
         }}
       />
       <style jsx>{`
         @keyframes float {
-          0% { transform: scale(1); }
-          50% { transform: scale(1.1); }
-          100% { transform: scale(1); }
+          0% { transform: scale(1.2); }
+          50% { transform: scale(1.3); }
+          100% { transform: scale(1.2); }
         }
       `}</style>
     </div>
@@ -69,7 +70,7 @@ function ThemeAwareImage() {
 // 服务器组件版本的HomeContent
 export default function HomeContent() {
   return (
-    <div className="flex-1 flex items-center">
+    <div className="flex-1 flex items-center" style={{ transform: 'translateY(-50px)' }}>
       <div className="flex flex-row items-center justify-between w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 gap-12">
         <div className="w-[45%] text-left">
           <h1 className="text-3xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-4xl">
