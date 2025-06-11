@@ -6,7 +6,7 @@ A modern, responsive portfolio website built with Next.js 14, featuring multiple
 
 Click the button below to deploy to Tencent Cloud EdgeOne with one click:
 
-[![Deploy to Tencent Cloud](https://img.shields.io/badge/Deploy%20to-Tencent%20Cloud-blue)](https://edgeone.ai/pages/new?template=https://github.com/tomcomtang/multiplepage-portfolio&output-directory=./out&build-command=npm%20run%20build&install-command=npm%20install)
+[![Deploy to Tencent Cloud](https://img.shields.io/badge/Deploy%20to-Tencent%20Cloud-blue)](https://edgeone.ai/pages/new?template=https://github.com/tomcomtang/multiplepage-portfolio&output-directory=./out)
 
 ## Features
 
