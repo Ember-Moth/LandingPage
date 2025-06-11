@@ -46,7 +46,7 @@ function ThemeAwareImage() {
   }
 
   return (
-    <div className="relative w-[800px] h-[800px] -mr-[200px]">
+    <div className="relative w-[500px] h-[500px]">
       <img
         src={imageSrc}
         alt="Tech background"
