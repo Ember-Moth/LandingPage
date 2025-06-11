@@ -1,21 +1,8 @@
-'use client';
-
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { projectsConfig } from '@/config/projects';
 
 export default function ProjectsContent() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
-
   return (
     <section className="relative z-20 max-w-4xl mx-auto mt-32 mb-12 px-7 lg:px-0">
       <div className="relative z-20 w-full mx-auto lg:mx-0">

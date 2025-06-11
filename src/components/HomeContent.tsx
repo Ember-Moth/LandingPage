@@ -4,14 +4,14 @@ import { useState, useEffect } from 'react';
 import Link from "next/link";
 import { homeConfig } from '@/config/home';
 
-export default function HomeContent() {
+// 将主题相关的逻辑移到这个客户端组件中
+function ThemeAwareImage() {
   const [mounted, setMounted] = useState(false);
   const [theme, setTheme] = useState('light');
   const [imageSrc, setImageSrc] = useState('/assets/images/tech-background-light.svg');
 
   useEffect(() => {
     setMounted(true);
-    // Check if user has a theme preference
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
       setTheme(savedTheme);
@@ -22,7 +22,6 @@ export default function HomeContent() {
     }
   }, []);
 
-  // 监听主题变化
   useEffect(() => {
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
@@ -46,6 +45,29 @@ export default function HomeContent() {
     return null;
   }
 
+  return (
+    <div className="relative w-[800px] h-[800px] -mr-[200px]">
+      <img
+        src={imageSrc}
+        alt="Tech background"
+        className="w-full h-full animate-[float_15s_ease-in-out_infinite] hover:scale-125 transition-transform duration-300"
+        style={{
+          animation: 'float 15s ease-in-out infinite',
+        }}
+      />
+      <style jsx>{`
+        @keyframes float {
+          0% { transform: scale(1); }
+          50% { transform: scale(1.1); }
+          100% { transform: scale(1); }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+// 服务器组件版本的HomeContent
+export default function HomeContent() {
   return (
     <div className="flex-1 flex items-center">
       <div className="flex flex-row items-center justify-between w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 gap-12">
@@ -100,23 +122,7 @@ export default function HomeContent() {
         </div>
 
         <div className="w-[45%] flex items-center justify-center bg-transparent">
-          <div className="relative w-[800px] h-[800px] -mr-[200px]">
-            <img
-              src={imageSrc}
-              alt="Tech background"
-              className="w-full h-full animate-[float_15s_ease-in-out_infinite] hover:scale-125 transition-transform duration-300"
-              style={{
-                animation: 'float 15s ease-in-out infinite',
-              }}
-            />
-            <style jsx>{`
-              @keyframes float {
-                0% { transform: scale(1); }
-                50% { transform: scale(1.1); }
-                100% { transform: scale(1); }
-              }
-            `}</style>
-          </div>
+          <ThemeAwareImage />
         </div>
       </div>
     </div>

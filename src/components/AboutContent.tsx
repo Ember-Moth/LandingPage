@@ -1,20 +1,7 @@
-'use client';
-
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import { aboutConfig } from "@/config/about";
 
 export default function AboutContent() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
-
   return (
     <section className="relative z-20 w-[896px] mx-auto mt-32 mb-12">
       <div className="relative z-20 w-full mx-auto lg:mx-0">
