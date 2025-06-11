@@ -3,25 +3,25 @@
 import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { useParams } from "next/navigation";
-import { postsConfig } from "@/config/posts";
 
-export default function Post() {
+interface Post {
+  title: string;
+  description: string;
+  date: string;
+  readTime: string;
+  slug: string;
+  image: string;
+  html: string;
+}
+
+export default function PostContent({ post }: { post: Post }) {
   const [mounted, setMounted] = useState(false);
-  const [post, setPost] = useState<any>(null);
-  const params = useParams();
 
   useEffect(() => {
     setMounted(true);
-    if (params.slug) {
-      const foundPost = postsConfig.posts.find(p => p.slug === `posts/${params.slug}`);
-      if (foundPost) {
-        setPost(foundPost);
-      }
-    }
-  }, [params.slug]);
+  }, []);
 
-  if (!mounted || !post) {
+  if (!mounted) {
     return null;
   }
 
@@ -37,6 +37,12 @@ export default function Post() {
 
         <article className="relative z-20 w-[896px] mx-auto mt-32 mb-12">
           <div className="prose dark:prose-invert max-w-none">
+            <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
+            <div className="flex items-center gap-4 text-sm text-neutral-600 dark:text-neutral-400 mb-8">
+              <time>{post.date}</time>
+              <span>•</span>
+              <span>{post.readTime}</span>
+            </div>
             <div dangerouslySetInnerHTML={{ __html: post.html }} />
           </div>
         </article>
