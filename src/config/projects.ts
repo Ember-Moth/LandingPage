@@ -7,19 +7,19 @@ export const projectsConfig = {
     {
       title: "EdgeOne Templates",
       description: "A collection of high-quality web templates built with Next.js and Tailwind CSS.",
-      href: "https://tempmail.best",
+      href: "https://edgeone.ai/pages/templates?usecase=portfolio",
       imageUrl: "/assets/images/projects/project1.jpg"
     },
     {
       title: "DNS Surf",
       description: "A powerful DNS resolution tool for checking DNS results across different regions.",
-      href: "https://dns.surf",
+      href: "https://edgeone.ai/pages/templates?usecase=portfolio",
       imageUrl: "/assets/images/projects/project2.jpg"
     },
     {
       title: "HTML Zone",
       description: "A comprehensive web development toolbox for developers.",
-      href: "https://html.zone",
+      href: "https://edgeone.ai/pages/templates?usecase=portfolio",
       imageUrl: "/assets/images/projects/project3.png"
     }
   ]
