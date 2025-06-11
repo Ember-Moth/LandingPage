@@ -89,7 +89,9 @@ export default function Projects() {
         </section>
       </div>
 
-      <Footer />
+      <div className="relative z-20">
+        <Footer />
+      </div>
     </main>
   );
 } 
