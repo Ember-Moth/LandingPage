@@ -1,6 +1,21 @@
 export const aboutConfig = {
   title: "About Us",
-  description: "Hello 👋 We are the EdgeOne team, dedicated to creating high-quality web templates and tools for developers. Our mission is to help developers build better web applications faster.",
+  description: "Welcome to EdgeOne Pages, where we're revolutionizing web hosting with our cutting-edge global infrastructure. As a leading provider of edge computing solutions, we deliver lightning-fast, secure, and reliable hosting services that empower businesses worldwide. Our mission is to transform the digital landscape by providing seamless, scalable hosting solutions that enable our users to focus on growing their business.",
+  image: "/assets/images/about.jpg",
+  stats: [
+    {
+      value: "99.9%",
+      label: "Uptime",
+    },
+    {
+      value: "200+",
+      label: "Global Locations",
+    },
+    {
+      value: "24/7",
+      label: "Support",
+    },
+  ],
   skills: [
     "Next.js",
     "React",

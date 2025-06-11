@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Kai's Portfolio",
+  name: "Someone's Portfolio",
   description: "A showcase of my work and thoughts",
   nav: {
     home: "Home",
