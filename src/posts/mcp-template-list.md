@@ -1,28 +1,29 @@
 ---
-title: "MCP Template List"
-description: "A comprehensive list of MCP templates and their features"
+title: "My Blog Journey"
+description: "A personal journey of learning and growth in web development"
 author: "John Doe"
-tags: ["templates", "mcp", "documentation"]
+tags: ["web development", "learning", "personal"]
 image: "/assets/images/posts/post1.jpg"
 ---
 
-# MCP Template List
+# My Blog Journey
 
-This is a sample markdown file to test our post generation script. The content below the frontmatter will be converted to HTML when rendered.
+Welcome to my personal blog where I share my experiences and insights about web development. This is a space where I document my learning journey and share knowledge with others.
 
-## Features
+## What I've Learned
 
-- Feature 1
-- Feature 2
-- Feature 3
+- Modern web development practices
+- Frontend frameworks and tools
+- Backend technologies
+- Best practices and tips
 
-## Usage
+## Getting Started
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Configuration
+## About This Blog
 
-You can configure the template by editing the `config.ts` file.
+This blog is built using modern web technologies and follows best practices in web development. Feel free to explore and learn from my experiences.

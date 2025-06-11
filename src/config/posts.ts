@@ -57,18 +57,18 @@ export const postsConfig = {
       "html": "<h1>Designing GraphQL APIs</h1>\n<p>GraphQL provides a powerful way to build flexible APIs. Let&#39;s explore how to design and implement GraphQL APIs effectively.</p>\n<h2>Schema Design</h2>\n<pre><code class=\"language-graphql\">type User {\n  id: ID!\n  name: String!\n  email: String!\n  posts: [Post!]!\n}\n\ntype Post {\n  id: ID!\n  title: String!\n  content: String!\n  author: User!\n  comments: [Comment!]!\n}\n\ntype Query {\n  user(id: ID!): User\n  posts: [Post!]!\n}\n\ntype Mutation {\n  createPost(input: CreatePostInput!): Post!\n  updatePost(id: ID!, input: UpdatePostInput!): Post!\n}\n</code></pre>\n<h2>Best Practices</h2>\n<ol>\n<li>Use proper types</li>\n<li>Implement pagination</li>\n<li>Handle errors gracefully</li>\n<li>Use fragments for reusability</li>\n</ol>\n<h2>Implementation Tips</h2>\n<ul>\n<li>Use DataLoader for batching</li>\n<li>Implement proper caching</li>\n<li>Handle authentication</li>\n<li>Monitor performance</li>\n</ul>\n"
     },
     {
-      "title": "MCP Template List",
-      "description": "A comprehensive list of MCP templates and their features",
+      "title": "My Blog Journey",
+      "description": "A personal journey of learning and growth in web development",
       "image": "/assets/images/posts/post1.jpg",
       "slug": "posts/mcp-template-list",
       "tags": [
-        "templates",
-        "mcp",
-        "documentation"
+        "web development",
+        "learning",
+        "personal"
       ],
       "author": "John Doe",
-      "content": "\n# MCP Template List\n\nThis is a sample markdown file to test our post generation script. The content below the frontmatter will be converted to HTML when rendered.\n\n## Features\n\n- Feature 1\n- Feature 2\n- Feature 3\n\n## Usage\n\n```bash\nnpm install\nnpm run dev\n```\n\n## Configuration\n\nYou can configure the template by editing the `config.ts` file.\n",
-      "html": "<h1>MCP Template List</h1>\n<p>This is a sample markdown file to test our post generation script. The content below the frontmatter will be converted to HTML when rendered.</p>\n<h2>Features</h2>\n<ul>\n<li>Feature 1</li>\n<li>Feature 2</li>\n<li>Feature 3</li>\n</ul>\n<h2>Usage</h2>\n<pre><code class=\"language-bash\">npm install\nnpm run dev\n</code></pre>\n<h2>Configuration</h2>\n<p>You can configure the template by editing the <code>config.ts</code> file.</p>\n"
+      "content": "\n# My Blog Journey\n\nWelcome to my personal blog where I share my experiences and insights about web development. This is a space where I document my learning journey and share knowledge with others.\n\n## What I've Learned\n\n- Modern web development practices\n- Frontend frameworks and tools\n- Backend technologies\n- Best practices and tips\n\n## Getting Started\n\n```bash\nnpm install\nnpm run dev\n```\n\n## About This Blog\n\nThis blog is built using modern web technologies and follows best practices in web development. Feel free to explore and learn from my experiences.\n",
+      "html": "<h1>My Blog Journey</h1>\n<p>Welcome to my personal blog where I share my experiences and insights about web development. This is a space where I document my learning journey and share knowledge with others.</p>\n<h2>What I&#39;ve Learned</h2>\n<ul>\n<li>Modern web development practices</li>\n<li>Frontend frameworks and tools</li>\n<li>Backend technologies</li>\n<li>Best practices and tips</li>\n</ul>\n<h2>Getting Started</h2>\n<pre><code class=\"language-bash\">npm install\nnpm run dev\n</code></pre>\n<h2>About This Blog</h2>\n<p>This blog is built using modern web technologies and follows best practices in web development. Feel free to explore and learn from my experiences.</p>\n"
     },
     {
       "title": "Building Microservices with Node.js",
