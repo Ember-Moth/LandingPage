@@ -1,28 +1,34 @@
-'use client';
-
-import { useState, useEffect } from "react";
+import { promises as fs } from 'fs';
+import path from 'path';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { useParams } from "next/navigation";
 import { postsConfig } from "@/config/posts";
+import { notFound } from 'next/navigation';
 
-export default function Post() {
-  const [mounted, setMounted] = useState(false);
-  const [post, setPost] = useState<any>(null);
-  const params = useParams();
+// 生成静态路径
+export async function generateStaticParams() {
+  return postsConfig.posts.map((post) => ({
+    slug: post.slug.replace('posts/', ''),
+  }));
+}
 
-  useEffect(() => {
-    setMounted(true);
-    if (params.slug) {
-      const foundPost = postsConfig.posts.find(p => p.slug === `posts/${params.slug}`);
-      if (foundPost) {
-        setPost(foundPost);
-      }
-    }
-  }, [params.slug]);
+export default async function Post({ params }: { params: { slug: string } }) {
+  const post = postsConfig.posts.find(p => p.slug === `posts/${params.slug}`);
 
-  if (!mounted || !post) {
-    return null;
+  if (!post) {
+    notFound();
+  }
+
+  // 读取静态 HTML 文件
+  const postSlug = post.slug.replace('posts/', '');
+  const postHtmlPath = path.join(process.cwd(), 'src/app/posts', postSlug, 'page.html');
+  let postHtml = '';
+  
+  try {
+    postHtml = await fs.readFile(postHtmlPath, 'utf8');
+  } catch (error) {
+    console.error(`Error reading HTML file for ${postSlug}:`, error);
+    postHtml = post.html; // 如果读取失败，使用配置中的 HTML
   }
 
   return (
@@ -37,7 +43,7 @@ export default function Post() {
       <main className="flex-grow">
         <article className="relative z-20 w-[896px] mx-auto mt-32 mb-12">
           <div className="prose dark:prose-invert max-w-none">
-            <div dangerouslySetInnerHTML={{ __html: post.html }} />
+            <div dangerouslySetInnerHTML={{ __html: postHtml }} />
           </div>
         </article>
       </main>

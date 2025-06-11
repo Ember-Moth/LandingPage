@@ -51,6 +51,16 @@ for (const file of files) {
     };
     
     posts.push(post);
+
+    // 生成静态 HTML 文件
+    const postSlug = post.slug.replace('posts/', '');
+    const postHtmlPath = path.join(__dirname, '../src/app/posts', postSlug, 'page.html');
+    
+    // 确保目录存在
+    fs.mkdirSync(path.dirname(postHtmlPath), { recursive: true });
+    
+    // 写入 HTML 文件
+    fs.writeFileSync(postHtmlPath, html);
   }
 }
 
@@ -60,7 +70,7 @@ const postsConfig = {
   description: "Technical articles, tutorials, and insights about web development and EdgeOne platform.",
   backButton: "Back to Home",
   noPosts: "No posts found matching your search.",
-  searchPlaceholder: "Search posts...", // 添加搜索框占位符
+  searchPlaceholder: "Search posts by title...",
   pagination: {
     previous: "Previous",
     next: "Next"

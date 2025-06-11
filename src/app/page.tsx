@@ -11,6 +11,7 @@ import { globalConfig } from "@/config/global";
 export default function Home() {
   const [mounted, setMounted] = useState(false)
   const [theme, setTheme] = useState('light')
+  const [imageSrc, setImageSrc] = useState('/assets/images/tech-background-light.svg')
 
   useEffect(() => {
     setMounted(true)
@@ -18,9 +19,31 @@ export default function Home() {
     const savedTheme = localStorage.getItem('theme')
     if (savedTheme) {
       setTheme(savedTheme)
+      setImageSrc(savedTheme === 'light' ? '/assets/images/tech-background-light.svg' : '/assets/images/tech-background.svg')
     } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       setTheme('dark')
+      setImageSrc('/assets/images/tech-background.svg')
     }
+  }, [])
+
+  // 监听主题变化
+  useEffect(() => {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          const isDark = document.documentElement.classList.contains('dark')
+          setTheme(isDark ? 'dark' : 'light')
+          setImageSrc(isDark ? '/assets/images/tech-background.svg' : '/assets/images/tech-background-light.svg')
+        }
+      })
+    })
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    })
+
+    return () => observer.disconnect()
   }, [])
 
   if (!mounted) {
@@ -67,6 +90,7 @@ export default function Home() {
                     />
                   </svg>
                 </Link>
+
                 <Link
                   href="/posts"
                   className="group inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-neutral-900 bg-white border border-neutral-300 rounded-lg hover:bg-neutral-50 dark:bg-neutral-900 dark:text-white dark:border-neutral-700 dark:hover:bg-neutral-800 transition-all duration-300 hover:scale-105 cursor-pointer"
@@ -92,7 +116,7 @@ export default function Home() {
             <div className="w-[45%] flex items-center justify-center bg-transparent">
               <div className="relative w-[800px] h-[800px] -mr-[200px]">
                 <img
-                  src={theme === 'light' ? "/assets/images/tech-background-light.svg" : "/assets/images/tech-background.svg"}
+                  src={imageSrc}
                   alt="Tech background"
                   className="w-full h-full animate-[float_15s_ease-in-out_infinite] hover:scale-125 transition-transform duration-300"
                   style={{
