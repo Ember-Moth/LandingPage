@@ -40,12 +40,12 @@ for (const file of files) {
     const post = {
       title: data.title,
       description: data.description,
-      date: data.date,
+      date: data.date || "2024-03-20", // 添加默认日期
       image: data.image,
       slug: generateSlug(file), // 使用文件名生成 slug
       tags: data.tags,
       author: data.author,
-      readTime: data.readTime,
+      readTime: data.readTime || "5", // 添加默认阅读时间
       content: content,
       html: html
     };
@@ -60,6 +60,7 @@ const postsConfig = {
   description: "Technical articles, tutorials, and insights about web development and EdgeOne platform.",
   backButton: "Back to Home",
   noPosts: "No posts found matching your search.",
+  searchPlaceholder: "Search posts...", // 添加搜索框占位符
   pagination: {
     previous: "Previous",
     next: "Next"
