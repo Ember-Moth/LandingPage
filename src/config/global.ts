@@ -1,12 +1,12 @@
 export const globalConfig = {
   site: {
-    name: "EdgeOne Templates",
-    author: "EdgeOne Team",
-    description: "A collection of beautiful templates built with Next.js and Tailwind CSS",
+    name: "Your Portfolio Name",
+    author: "Your Name",
+    description: "A brief description of your portfolio website",
     url: "/"
   },
   navigation: {
-    aria: "EdgeOne Templates Navigation",
+    aria: "Main Navigation",
     items: [
       {
         title: "Home",
@@ -27,8 +27,8 @@ export const globalConfig = {
     ]
   },
   footer: {
-    aria: "EdgeOne Templates Footer",
-    copyright: "© 2024 EdgeOne Templates. All rights reserved.",
+    aria: "Footer Navigation",
+    copyright: "© 2025 Your Name. All rights reserved.",
     social: {
       twitter: "https://x.com/TencentCloudEO",
       github: "https://github.com/TencentEdgeOne",

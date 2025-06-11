@@ -1,19 +1,19 @@
 export const aboutConfig = {
   title: "About Us",
-  description: "Welcome to EdgeOne Pages, where we're revolutionizing web hosting with our cutting-edge global infrastructure. As a leading provider of edge computing solutions, we deliver lightning-fast, secure, and reliable hosting services that empower businesses worldwide. Our mission is to transform the digital landscape by providing seamless, scalable hosting solutions that enable our users to focus on growing their business.",
+  description: "This is where you can introduce yourself or your company. Share your story, mission, and values. Explain what makes you unique and why people should be interested in your work. Keep it concise but engaging.",
   image: "/assets/images/about.jpg",
   stats: [
     {
-      value: "99.9%",
-      label: "Uptime",
+      value: "5+",
+      label: "Years Experience",
     },
     {
-      value: "200+",
-      label: "Global Locations",
+      value: "50+",
+      label: "Projects Completed",
     },
     {
-      value: "24/7",
-      label: "Support",
+      value: "100%",
+      label: "Client Satisfaction",
     },
   ],
   skills: [

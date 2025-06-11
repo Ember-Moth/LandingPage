@@ -1,24 +1,24 @@
 export const projectsConfig = {
   title: "Our Projects",
-  description: "Here are some of our recent projects. Each project is designed to help developers build better web applications.",
+  description: "Here you can showcase your best work. Each project should include a brief description, the technologies used, and any notable achievements. This helps potential clients or employers understand your capabilities.",
   backButton: "Back to Home",
   noProjects: "No projects found.",
   items: [
     {
-      title: "EdgeOne Templates",
-      description: "A collection of high-quality web templates built with Next.js and Tailwind CSS.",
+      title: "Project One",
+      description: "A brief description of your first project. Explain what it does and what technologies you used.",
       href: "https://edgeone.ai/pages/templates?usecase=portfolio",
       imageUrl: "/assets/images/projects/project1.jpg"
     },
     {
-      title: "DNS Surf",
-      description: "A powerful DNS resolution tool for checking DNS results across different regions.",
+      title: "Project Two",
+      description: "Describe your second project here. Highlight the key features and your role in development.",
       href: "https://edgeone.ai/pages/templates?usecase=portfolio",
       imageUrl: "/assets/images/projects/project2.jpg"
     },
     {
-      title: "HTML Zone",
-      description: "A comprehensive web development toolbox for developers.",
+      title: "Project Three",
+      description: "Share details about your third project. What problems did it solve? What was the outcome?",
       href: "https://edgeone.ai/pages/templates?usecase=portfolio",
       imageUrl: "/assets/images/projects/project3.png"
     }
