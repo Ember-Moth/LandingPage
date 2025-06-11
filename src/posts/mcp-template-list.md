@@ -3,6 +3,7 @@ title: "MCP Template List"
 description: "A comprehensive list of MCP templates and their features"
 author: "John Doe"
 tags: ["templates", "mcp", "documentation"]
+image: "/assets/images/posts/post1.jpg"
 ---
 
 # MCP Template List

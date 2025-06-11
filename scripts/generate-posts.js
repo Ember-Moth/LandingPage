@@ -1,11 +1,7 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import { marked } from 'marked';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const fs = require('fs');
+const path = require('path');
+const matter = require('gray-matter');
+const { marked } = require('marked');
 
 // 配置 marked 选项
 marked.setOptions({
@@ -14,6 +10,14 @@ marked.setOptions({
   headerIds: true,
   mangle: false
 });
+
+// 从文件名生成 slug
+function generateSlug(filename) {
+  // 移除 .md 扩展名
+  const nameWithoutExt = filename.replace(/\.md$/, '');
+  // 将文件名转换为小写并用连字符替换空格
+  return `posts/${nameWithoutExt.toLowerCase().replace(/\s+/g, '-')}`;
+}
 
 // 读取 posts 目录下的所有 md 文件
 const postsDirectory = path.join(__dirname, '../src/posts');
@@ -38,7 +42,7 @@ for (const file of files) {
       description: data.description,
       date: data.date,
       image: data.image,
-      slug: data.slug,
+      slug: generateSlug(file), // 使用文件名生成 slug
       tags: data.tags,
       author: data.author,
       readTime: data.readTime,
