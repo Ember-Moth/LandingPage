@@ -2,12 +2,13 @@
   "name": "multiplepage-portfolio",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "ts-node scripts/generate-posts.ts && next dev",
-    "build": "ts-node scripts/generate-posts.ts && next build",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate-posts": "ts-node scripts/generate-posts.ts"
+    "generate-posts": "node scripts/generate-posts.js"
   },
   "keywords": [],
   "author": "",

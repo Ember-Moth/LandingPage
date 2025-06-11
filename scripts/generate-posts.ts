@@ -2,7 +2,6 @@ const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 const { format } = require('date-fns');
-const { marked } = require('marked');
 
 interface Post {
   title: string;
@@ -13,8 +12,6 @@ interface Post {
   tags?: string[];
   author?: string;
   readTime?: string;
-  content?: string;
-  html?: string;
 }
 
 const POSTS_DIR = path.join(process.cwd(), 'src/posts');
@@ -32,22 +29,6 @@ if (!fs.existsSync(CONFIG_DIR)) {
 function getRandomImage() {
   const imageNumber = Math.floor(Math.random() * 3) + 1;
   return `/assets/images/posts/post${imageNumber}.jpg`;
-}
-
-function generateHtmlContent(content: string) {
-  // Remove the first h1 heading if it exists
-  const contentWithoutTitle = content.replace(/^# .*\n/, '');
-  
-  // Configure marked options
-  marked.setOptions({
-    gfm: true,
-    breaks: true,
-    headerIds: true,
-    mangle: false
-  });
-
-  // Convert markdown to HTML
-  return marked(contentWithoutTitle);
 }
 
 function generatePostsConfig() {
@@ -73,9 +54,7 @@ function generatePostsConfig() {
         slug: `posts/${slug}`,
         tags: data.tags || [],
         author: data.author || 'Anonymous',
-        readTime: data.readTime || '5 min read',
-        content: content,
-        html: generateHtmlContent(content)
+        readTime: data.readTime || '5 min read'
       };
 
       posts.push(post);
