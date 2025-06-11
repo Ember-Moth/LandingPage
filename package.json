@@ -6,7 +6,8 @@
     "dev": "ts-node scripts/generate-posts.ts && next dev",
     "build": "ts-node scripts/generate-posts.ts && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-posts": "ts-node scripts/generate-posts.ts"
   },
   "keywords": [],
   "author": "",

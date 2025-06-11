@@ -16,7 +16,7 @@ export const postsConfig = {
       "title": "Docker Basics for Developers",
       "description": "Learn the fundamentals of Docker and containerization",
       "date": "2025-06-10",
-      "image": "/assets/images/posts/post3.jpg",
+      "image": "/assets/images/posts/post2.jpg",
       "slug": "posts/docker-basics",
       "tags": [
         "docker",
@@ -33,7 +33,7 @@ export const postsConfig = {
       "title": "Getting Started with Next.js 14",
       "description": "A comprehensive guide to building modern web applications with Next.js 14",
       "date": "2025-06-10",
-      "image": "/assets/images/posts/post1.jpg",
+      "image": "/assets/images/posts/post3.jpg",
       "slug": "posts/getting-started-with-nextjs",
       "tags": [
         "nextjs",
@@ -50,7 +50,7 @@ export const postsConfig = {
       "title": "Designing GraphQL APIs",
       "description": "Best practices for designing and implementing GraphQL APIs",
       "date": "2025-06-10",
-      "image": "/assets/images/posts/post2.jpg",
+      "image": "/assets/images/posts/post3.jpg",
       "slug": "posts/graphql-api",
       "tags": [
         "graphql",
@@ -83,7 +83,7 @@ export const postsConfig = {
       "title": "Building Microservices with Node.js",
       "description": "A practical guide to building scalable microservices using Node.js",
       "date": "2025-06-10",
-      "image": "/assets/images/posts/post3.jpg",
+      "image": "/assets/images/posts/post2.jpg",
       "slug": "posts/nodejs-microservices",
       "tags": [
         "nodejs",
@@ -168,7 +168,7 @@ export const postsConfig = {
       "title": "TypeScript Best Practices in 2024",
       "description": "Essential TypeScript patterns and practices for modern web development",
       "date": "2025-06-10",
-      "image": "/assets/images/posts/post3.jpg",
+      "image": "/assets/images/posts/post1.jpg",
       "slug": "posts/typescript-best-practices",
       "tags": [
         "typescript",

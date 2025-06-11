@@ -68,6 +68,47 @@ npm run build
 └── public/               # Static assets
 ```
 
+## Content Management
+
+### Blog Posts
+
+1. Create your markdown files in `src/content/posts/` directory
+2. Each markdown file should follow this format:
+
+```markdown
+---
+title: Your Post Title
+description: A brief description of your post
+date: 2024-03-21
+readTime: 5 min
+---
+
+Your post content here...
+```
+
+3. After adding or modifying markdown files, run:
+
+```bash
+npm run generate-posts
+```
+
+### Page Content
+
+You can customize the content of different pages by modifying these files:
+
+- **About Page**: `src/app/about/page.tsx`
+- **Projects Page**: `src/config/projects.ts`
+- **Blog Posts**: `src/content/posts/*.md`
+- **Site Configuration**: `src/config/site.ts`
+
+### Site Configuration
+
+The main configuration files are:
+
+- `src/config/site.ts`: Site-wide settings like title, description, etc.
+- `src/config/posts.ts`: Blog posts configuration
+- `src/config/projects.ts`: Projects showcase configuration
+
 ## Blog System
 
 The blog system supports:
