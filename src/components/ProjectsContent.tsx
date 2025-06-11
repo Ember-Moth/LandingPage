@@ -1,11 +1,22 @@
-import dynamic from 'next/dynamic';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+'use client';
+
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { projectsConfig } from '@/config/projects';
 
-const ProjectsContent = dynamic(() => import('@/components/ProjectsContent'), {
-  ssr: true,
-  loading: () => (
+export default function ProjectsContent() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
+  return (
     <section className="relative z-20 max-w-4xl mx-auto mt-32 mb-12 px-7 lg:px-0">
       <div className="relative z-20 w-full mx-auto lg:mx-0">
         <h2 className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 sm:text-3xl lg:text-4xl">
@@ -22,15 +33,17 @@ const ProjectsContent = dynamic(() => import('@/components/ProjectsContent'), {
             key={index}
             href={project.href}
             target="_blank"
-            className="relative flex flex-col items-stretch p-7 sm:p-3 group h-100 rounded-2xl"
+            className="relative flex flex-col items-stretch duration-300 ease-out p-7 sm:p-3 group h-100 rounded-2xl"
           >
-            <span className="absolute inset-0 z-20 block w-full h-full bg-transparent border border-transparent border-dashed rounded-2xl"></span>
-            <span className="absolute inset-0 z-10 block w-full h-full border border-dashed rounded-2xl border-neutral-300 dark:border-neutral-600"></span>
-            <span className="relative z-30 block">
+            <span className="absolute inset-0 z-20 block w-full h-full duration-300 ease-out bg-transparent border border-transparent border-dashed group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:border group-hover:border-neutral-300 dark:group-hover:border-neutral-600 group-hover:border-dashed rounded-2xl group-hover:bg-white dark:group-hover:bg-neutral-950"></span>
+            <span className="absolute inset-0 z-10 block w-full h-full duration-300 ease-out border border-dashed rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:translate-x-1 group-hover:translate-y-1"></span>
+            <span className="relative z-30 block duration-300 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1">
               <span className="block w-full">
-                <img
+                <Image
                   src={project.imageUrl}
                   alt={project.title}
+                  width={800}
+                  height={450}
                   className="w-full h-auto rounded-lg aspect-[16/9] object-cover"
                 />
               </span>
@@ -38,7 +51,7 @@ const ProjectsContent = dynamic(() => import('@/components/ProjectsContent'), {
                 <span className="flex items-center mb-0 text-base font-semibold tracking-tight text-neutral-900 dark:text-neutral-100">
                   <span>{project.title}</span>
                   <svg
-                    className="-rotate-45 translate-y-1 -translate-x-1 w-2.5 h-2.5 stroke-current ml-1"
+                    className="group-hover:translate-x-0 group-hover:translate-y-0 -rotate-45 translate-y-1 -translate-x-1 w-2.5 h-2.5 stroke-current ml-1 transition-all ease-in-out duration-200 transform"
                     viewBox="0 0 13 15"
                     version="1.1"
                     xmlns="http://www.w3.org/2000/svg"
@@ -47,8 +60,8 @@ const ProjectsContent = dynamic(() => import('@/components/ProjectsContent'), {
                     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" strokeLinecap="round" strokeLinejoin="round">
                       <g id="svg" transform="translate(0.666667, 2.333333)" stroke="currentColor" strokeWidth="2.4">
                         <g>
-                          <polyline points="5.33333333 0 10.8333333 5.5 5.33333333 11"></polyline>
-                          <line x1="10.8333333" y1="5.5" x2="0.833333333" y2="5.16666667"></line>
+                          <polyline className="transition-all duration-200 ease-out opacity-0 delay-0 group-hover:opacity-100" points="5.33333333 0 10.8333333 5.5 5.33333333 11"></polyline>
+                          <line className="transition-all duration-200 ease-out transform -translate-x-1 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 group-hover:ml-0" x1="10.8333333" y1="5.5" x2="0.833333333" y2="5.16666667"></line>
                         </g>
                       </g>
                     </g>
@@ -63,22 +76,5 @@ const ProjectsContent = dynamic(() => import('@/components/ProjectsContent'), {
         ))}
       </div>
     </section>
-  )
-});
-
-export default function Projects() {
-  return (
-    <main className="min-h-screen flex flex-col">
-      <div className="relative flex-grow flex flex-col overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:28px_48px] -z-10"></div>
-          <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[1200px] w-[1200px] rounded-full bg-neutral-400 opacity-10 blur-[100px]"></div>
-        </div>
-
-        <Navbar />
-        <ProjectsContent />
-      </div>
-      <Footer />
-    </main>
   );
 } 

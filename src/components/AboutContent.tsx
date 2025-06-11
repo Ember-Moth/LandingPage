@@ -1,11 +1,21 @@
-import dynamic from 'next/dynamic';
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+'use client';
+
+import { useState, useEffect } from "react";
+import Image from "next/image";
 import { aboutConfig } from "@/config/about";
 
-const AboutContent = dynamic(() => import('@/components/AboutContent'), {
-  ssr: true,
-  loading: () => (
+export default function AboutContent() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
+  return (
     <section className="relative z-20 w-[896px] mx-auto mt-32 mb-12">
       <div className="relative z-20 w-full mx-auto lg:mx-0">
         <h2 className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 sm:text-3xl lg:text-4xl">
@@ -26,10 +36,13 @@ const AboutContent = dynamic(() => import('@/components/AboutContent'), {
           </div>
           <div className="w-full md:w-1/2 flex justify-end">
             <div className="relative w-[360px] h-[360px]">
-              <img
+              <Image
                 src="/assets/images/about/coder.jpg"
                 alt="Profile"
-                className="object-cover rounded-xl w-full h-full"
+                fill
+                sizes="(max-width: 768px) 100vw, 360px"
+                className="object-cover rounded-xl"
+                priority
               />
             </div>
           </div>
@@ -87,22 +100,5 @@ const AboutContent = dynamic(() => import('@/components/AboutContent'), {
         </div>
       </div>
     </section>
-  )
-});
-
-export default function About() {
-  return (
-    <main className="min-h-screen flex flex-col">
-      <div className="relative flex-grow flex flex-col">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:28px_48px] -z-10"></div>
-          <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[1200px] w-[1200px] rounded-full bg-neutral-400 opacity-10 blur-[100px]"></div>
-        </div>
-
-        <Navbar />
-        <AboutContent />
-      </div>
-      <Footer />
-    </main>
   );
 } 
