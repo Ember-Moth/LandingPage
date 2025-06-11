@@ -4,23 +4,24 @@ import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useParams } from "next/navigation";
-import matter from "gray-matter";
-import ReactMarkdown from "react-markdown";
+import { postsConfig } from "@/config/posts";
 
 export default function Post() {
   const [mounted, setMounted] = useState(false);
-  const [content, setContent] = useState("");
-  const [frontMatter, setFrontMatter] = useState<any>({});
+  const [post, setPost] = useState<any>(null);
   const params = useParams();
 
   useEffect(() => {
     setMounted(true);
-    // In a real app, you would fetch the markdown content from an API
-    // For now, we'll just show a loading state
-    setContent("Loading...");
+    if (params.slug) {
+      const foundPost = postsConfig.posts.find(p => p.slug === `posts/${params.slug}`);
+      if (foundPost) {
+        setPost(foundPost);
+      }
+    }
   }, [params.slug]);
 
-  if (!mounted) {
+  if (!mounted || !post) {
     return null;
   }
 
@@ -36,13 +37,13 @@ export default function Post() {
 
         <article className="relative z-20 w-[896px] mx-auto mt-32 mb-12">
           <div className="prose dark:prose-invert max-w-none">
-            <h1>{frontMatter.title}</h1>
-            <div className="flex items-center gap-4 text-sm text-neutral-600 dark:text-neutral-400">
-              <time>{frontMatter.date}</time>
+            <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
+            <div className="flex items-center gap-4 text-sm text-neutral-600 dark:text-neutral-400 mb-8">
+              <time>{post.date}</time>
               <span>•</span>
-              <span>{frontMatter.readingTime}</span>
+              <span>{post.readTime}</span>
             </div>
-            <ReactMarkdown>{content}</ReactMarkdown>
+            <div dangerouslySetInnerHTML={{ __html: post.html }} />
           </div>
         </article>
       </div>
