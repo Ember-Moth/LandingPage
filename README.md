@@ -6,7 +6,7 @@ A modern, responsive portfolio website built with Next.js 14, featuring multiple
 
 Click the button below to deploy to Tencent Cloud EdgeOne with one click:
 
-[![Deploy to Tencent Cloud](https://img.shields.io/badge/Deploy%20to-Tencent%20Cloud-blue)](https://edgeone.ai/pages/new?template=https://github.com/tomcomtang/multiplepage-portfolio&output-directory=./out)
+[![Deploy to Tencent Cloud](https://img.shields.io/badge/Deploy%20to-Tencent%20Cloud-blue)](https://edgeone.ai/pages/new?template=https://github.com/tomcomtang/minimalist-portfolio&output-directory=./out&build-command=npm%20run%20build&install-command=npm%20install)
 
 ## Features
 
@@ -99,15 +99,18 @@ You can customize the content of different pages by modifying these files:
 - **About Page**: `src/app/about/page.tsx`
 - **Projects Page**: `src/config/projects.ts`
 - **Blog Posts**: `src/content/posts/*.md`
-- **Site Configuration**: `src/config/site.ts`
 
 ### Site Configuration
 
 The main configuration files are:
 
-- `src/config/site.ts`: Site-wide settings like title, description, etc.
-- `src/config/posts.ts`: Blog posts configuration
+- `src/config/content.ts`: Main content configuration including site name, description, and all page content
+- `src/config/global.ts`: Global settings like navigation, footer, and social links
+- `src/config/contact.ts`: Contact information and social media links
+- `src/config/home.ts`: Home page specific configuration
+- `src/config/posts.ts`: Blog posts configuration and content
 - `src/config/projects.ts`: Projects showcase configuration
+- `src/config/about.ts`: About page configuration
 
 ## Blog System
 
@@ -123,7 +126,7 @@ The blog system supports:
 
 1. Add new blog posts by creating Markdown files in the `src/content/posts` directory
 2. Update project information in `src/config/projects.ts`
-3. Modify site configuration in `src/config/site.ts`
+3. Modify site configuration in `src/config/content.ts` and `src/config/global.ts`
 
 ## License
 
