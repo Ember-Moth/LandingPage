@@ -8,9 +8,9 @@ Click the button below to deploy to Tencent Cloud EdgeOne with one click:
 
 [![Deploy to Tencent Cloud](https://img.shields.io/badge/Deploy%20to-Tencent%20Cloud-blue)](https://edgeone.ai/pages/new?template=https://github.com/tomcomtang/minimalist-portfolio&output-directory=./out&build-command=npm%20run%20build&install-command=npm%20install)
 
-## 预览
+## Preview
 
-你可以通过以下地址在线预览本项目效果：
+You can preview the project online at:
 
 [https://multiplepage-portfolio.edgeone.app/](https://multiplepage-portfolio.edgeone.app/)
 
