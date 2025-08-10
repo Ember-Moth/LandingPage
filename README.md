@@ -1,64 +1,64 @@
 # Multiple Page Portfolio
 
-A modern, responsive portfolio website built with Next.js 14, featuring multiple pages including a blog system, projects showcase, and about page.
+一个使用 Next.js 15 构建的现代响应式作品集网站，包含多个页面，包括博客系统、项目展示页和关于页面。
 
-## Quick Deploy
+## 快速部署
 
-[![Deploy to Tencent Cloud](https://cdnstatic.tencentcs.com/edgeone/pages/deploy.svg)](https://edgeone.ai/pages/new?template=https://github.com/tomcomtang/minimalist-portfolio&output-directory=./out&build-command=npm%20run%20build&install-command=npm%20install)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Ember-Moth/multiplepage-portfolio)
 
-## Preview
+## 预览
 
-You can preview the project online at:
+你可以在这里在线预览该项目:
 
 [https://multiplepage-portfolio.edgeone.app/](https://multiplepage-portfolio.edgeone.app/)
 
-## Features
+## 功能特点
 
-- 🎨 Modern and clean design with dark/light mode support
-- 📱 Fully responsive layout
-- 📝 Blog system with Markdown support
-- 🚀 Project showcase
-- 🔍 Search functionality for blog posts
-- 🎯 SEO optimized
-- 🌙 Dark/Light theme toggle
-- 📦 Static site generation
+- 🎨 现代简洁的设计，支持深色/浅色模式
+- 📱 完全响应式布局
+- 📝 支持 Markdown 的博客系统
+- 🚀 项目展示页
+- 🔍 博文搜索功能
+- 🎯 SEO 优化
+- 🌙 深色/浅色主题切换
+- 📦 静态站点生成
 
-## Tech Stack
+## 技术栈
 
-- **Framework**: Next.js 14
-- **Styling**: Tailwind CSS
-- **Content**: Markdown with React Markdown
-- **Syntax Highlighting**: React Syntax Highlighter
-- **Theme**: next-themes
-- **UI Components**: Custom components with Radix UI primitives
+- **框架**: Next.js 15
+- **样式**: Tailwind CSS
+- **内容**: Markdown + React Markdown
+- **代码高亮**: React Syntax Highlighter
+- **主题**: next-themes
+- **UI 组件**: 基于 Radix UI primitives 的自定义组件
 
-## Getting Started
+## 快速开始
 
-1. Clone the repository:
+1. 克隆仓库:
 
 ```bash
 git clone https://github.com/tomcomtang/multiplepage-portfolio.git
 ```
 
-2. Install dependencies:
+2. 安装依赖:
 
 ```bash
 npm install
 ```
 
-3. Run the development server:
+3. 启动开发服务器:
 
 ```bash
 npm run dev
 ```
 
-4. Build for production:
+4. 构建生产版本:
 
 ```bash
 npm run build
 ```
 
-## Project Structure
+## 项目结构
 
 ```
 ├── src/
@@ -72,65 +72,65 @@ npm run build
 └── public/               # Static assets
 ```
 
-## Content Management
+## 内容管理
 
-### Blog Posts
+### 博客文章
 
-1. Create your markdown files in `src/content/posts/` directory
-2. Each markdown file should follow this format:
+1. 在 `src/content/posts/` 目录中创建 Markdown 文件
+2. 每篇文章应遵循以下格式:
 
 ```markdown
 ---
-title: Your Post Title
-description: A brief description of your post
+title: 文章标题
+description: 文章简短描述
 date: 2024-03-21
 readTime: 5 min
 ---
 
-Your post content here...
+这里是文章内容...
 ```
 
-3. After adding or modifying markdown files, run:
+3. 添加或修改文章后，运行:
 
 ```bash
 npm run generate-posts
 ```
 
-### Page Content
+### 页面内容
 
-You can customize the content of different pages by modifying these files:
+可以通过修改以下文件来自定义不同页面的内容:
 
-- **About Page**: `src/app/about/page.tsx`
-- **Projects Page**: `src/config/projects.ts`
-- **Blog Posts**: `src/content/posts/*.md`
+- **关于页面**: `src/app/about/page.tsx`
+- **项目页面**: `src/config/projects.ts`
+- **博客文章**: `src/content/posts/*.md`
 
-### Site Configuration
+### 站点配置
 
-The main configuration files are:
+主要的配置文件有:
 
-- `src/config/content.ts`: Main content configuration including site name, description, and all page content
-- `src/config/global.ts`: Global settings like navigation, footer, and social links
-- `src/config/contact.ts`: Contact information and social media links
-- `src/config/home.ts`: Home page specific configuration
-- `src/config/posts.ts`: Blog posts configuration and content
-- `src/config/projects.ts`: Projects showcase configuration
-- `src/config/about.ts`: About page configuration
+- `src/config/content.ts`: 站点名称、描述以及所有页面内容的主配置
+- `src/config/global.ts`: 全局设置（导航栏、页脚、社交链接等）
+- `src/config/contact.ts`: 联系信息与社交媒体链接
+- `src/config/home.ts`: 首页配置
+- `src/config/posts.ts`: 博客文章配置
+- `src/config/projects.ts`: 项目展示配置
+- `src/config/about.ts`: 关于页面配置
 
-## Blog System
+## 博客系统
 
-The blog system supports:
+博客系统支持:
 
-- Markdown content
-- Code syntax highlighting
-- Reading time estimation
-- Search functionality
-- Pagination
+- Markdown 内容
+- 代码语法高亮
+- 阅读时间估算
+- 搜索功能
+- 分页
 
-## Customization
+## 自定义
 
-1. Add new blog posts by creating Markdown files in the `src/content/posts` directory
-2. Update project information in `src/config/projects.ts`
-3. Modify site configuration in `src/config/content.ts` and `src/config/global.ts`
+1. 在 `src/content/posts` 目录中添加新的 Markdown 博客文章
+2. 更新 `src/config/projects.ts` 中的项目信息
+3. 修改 `src/config/content.ts` 与 `src/config/global.ts` 中的站点配置
 
 ## License
 
