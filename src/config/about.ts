@@ -59,7 +59,7 @@ export const aboutConfig = {
       },
       email: {
         text: "email",
-        url: "mailto:media_service@tencent.com"
+        url: "mailto:support@anti-entropy.dev"
       }
     }
   }

@@ -1,13 +1,13 @@
 export const contactConfig = {
   title: "Contact",
   description: "Get in touch with me for collaboration opportunities, questions, or just to say hello. I'm always open to discussing new projects and ideas.",
-  email: "your.email@example.com",
+  email: "support@anti-entropy.dev",
   phone: "+1 (555) 123-4567",
   address: "123 Main Street, City, Country",
   social: [
     {
       name: "Twitter",
-      url: "https://twitter.com/yourusername",
+      url: "https://twitter.com/Anti_Entropy",
       icon: "twitter"
     },
     {
@@ -17,7 +17,7 @@ export const contactConfig = {
     },
     {
       name: "GitHub",
-      url: "https://github.com/yourusername",
+      url: "https://github.com/Anti-Entropy",
       icon: "github"
     }
   ]

@@ -1,7 +1,7 @@
 export const globalConfig = {
   site: {
     name: "Your Portfolio Name",
-    author: "Your Name",
+    author: "Anti Entropy",
     description: "A brief description of your portfolio website",
     url: "/"
   },
@@ -28,11 +28,11 @@ export const globalConfig = {
   },
   footer: {
     aria: "Footer Navigation",
-    copyright: "© 2025 Your Name. All rights reserved.",
+    copyright: "© 2025 Anti Entropy. All rights reserved.",
     social: {
-      twitter: "https://x.com/TencentCloudEO",
-      github: "https://github.com/TencentEdgeOne",
-      email: "media_service@tencent.com"
+      twitter: "https://x.com/Anti_Entropy",
+      github: "https://github.com/Anti-Entropy",
+      email: "support@anti-entropy.dev"
     }
   }
 } as const; 
